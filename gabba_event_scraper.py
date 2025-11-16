@@ -59,17 +59,25 @@ def get_page_source_with_selenium():
 
         # Let's give the page a simple 5 seconds to settle *before*
         # we start probing it with WebDriverWait. This adds stability.
-        print("Waiting 5s for JavaScript to settle...")
-        time.sleep(5)
+        # print("Waiting 5s for JavaScript to settle...")
+        # time.sleep(5)
 
         # THIS IS THE KEY: Wait for up to 30 seconds for the FIRST event
         # to appear. This ensures the JavaScript has finished running.
-        print(f"Waiting for events to load (max 30s)... Selector: {EVENT_CONTAINER_SELECTOR}")
-        WebDriverWait(driver, 30).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, EVENT_CONTAINER_SELECTOR))
-        )
+        # print(f"Waiting for events to load (max 30s)... Selector: {EVENT_CONTAINER_SELECTOR}")
+        # WebDriverWait(driver, 30).until(
+        #     EC.presence_of_element_located((By.CSS_SELECTOR, EVENT_CONTAINER_SELECTOR))
+        # )
 
-        print("Events found! Getting page source.")
+        # --- NEW STRATEGY ---
+        # The WebDriverWait is failing, even though the error log shows the element
+        # exists. This suggests a race condition with the Vue.js app.
+        # We will replace the "smart" wait with a longer "dumb" wait.
+        print("Waiting 15s for dynamic content to load...")
+        time.sleep(15)
+        # --------------------
+
+        print("Events should be loaded. Getting page source.")
         # Scroll down a bit to trigger any lazy-loading, just in case
         driver.execute_script("window.scrollTo(0, 1000);")
         time.sleep(2) # Give it a moment
