@@ -29,7 +29,6 @@ jobs:
         with:
           python-version: '3.10' 
 
-      # --- NEW STEP ---
       - name: 3. Set up Chrome (for Selenium)
         uses: browser-actions/setup-chrome@v1
         
@@ -43,34 +42,24 @@ jobs:
         run: |
           # Use the github.workspace variable to find the python script
           python ${{ github.workspace }}/gabba_event_scraper.py
-        # We expect this to fail, so we continue on error
-        continue-on-error: true
 
-      # --- NEW DEBUG STEP ---
-      - name: 6. Upload debug HTML
-        # This will run even if the previous step failed
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: debug-html
-          path: debug_page.html
-
-      # Step 7 will only run if Step 5 was successful
-      - name: 7. Commit and push the updated .ics file
-        # This 'if' condition means this step only runs if the scraper (step 5)
-        # did NOT fail.
-        if: steps[5].outcome == 'success'
+      - name: 6. Commit and push the updated .ics file
         run: |
           # We must set the working directory for git to find the file
           cd ${{ github.workspace }}
           
           git config --global user.name 'GitHub Actions Bot'
           git config --global user.email 'actions@github.com'
+          
           # Add the generated file
           git add gabba-events.ics
           
-          # Commit the changes only if any exist
-          git diff-index --quiet HEAD || git commit -m "Update Gabba events calendar"
-          
-          # Push the changes back to the repository
-          git push
+          # Check if there are any changes staged (i.e., if the ics file is new or changed)
+          # This is the new, corrected command.
+          if git diff-index --quiet --cached HEAD --; then
+            echo "No changes to commit. The .ics file is already up-to-date."
+          else
+            echo "Changes detected. Committing and pushing..."
+            git commit -m "Update Gabba events calendar"
+            git push
+          fi
