@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from icalendar import Calendar, Event
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from dateutil.parser import parse as parse_date
 import os
 import sys
@@ -209,16 +209,16 @@ def create_ical_file(events):
         # Add timezone info (Australia/Brisbane)
         # Note: We can't use 'TZID' without a full VTIMEZONE component,
         # so we'll use UTC offsets. Brisbane is UTC+10.
-        start_dt_utc = event['start_datetime'].astimezone(datetime.timezone(timedelta(hours=10)))
+        start_dt_utc = event['start_datetime'].astimezone(timezone(timedelta(hours=10)))
         
         ievent.add('dtstart', start_dt_utc)
         
         if not event['is_all_day']:
             # Add an end time (assuming 2 hours for now, can be adjusted)
-            end_dt_utc = (event['start_datetime'] + timedelta(hours=2)).astimezone(datetime.timezone(timedelta(hours=10)))
+            end_dt_utc = (event['start_datetime'] + timedelta(hours=2)).astimezone(timezone(timedelta(hours=10)))
             ievent.add('dtend', end_dt_utc)
         
-        ievent.add('dtstamp', datetime.now(datetime.timezone.utc))
+        ievent.add('dtstamp', datetime.now(timezone.utc))
         ievent.add('location', 'The Gabba, Vulture St, Woolloongabba QLD 4102')
         ievent.add('description', f"{event['description']}\n\nMore info: {event['url']}")
         ievent.add('url', event['url'])
