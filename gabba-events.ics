@@ -1,0 +1,116 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Gabba Event Scraper//thegabba.com.au//
+DESCRIPTION:Events at The Gabba\, scraped from the official website.
+X-WR-CALDESC:Events at The Gabba\, scraped from the official website.
+NAME:The Gabba Events
+X-WR-CALNAME:The Gabba Events
+BEGIN:VEVENT
+SUMMARY:Queensland Bulls v Victoria – Day 1
+DTSTART;TZID="UTC+10:00":20251122T233000
+DTEND;TZID="UTC+10:00":20251123T013000
+DTSTAMP:20251116T230641Z
+UID:2025-11-22T13:30:00@https://thegabba.com.au/events/queensland-bulls-v-
+ victoria---day-1
+DESCRIPTION:1:30pm - Gates open\n2:00pm - First Ball\n\nMore info: https:/
+ /thegabba.com.au/events/queensland-bulls-v-victoria---day-1
+LOCATION:The Gabba\, Vulture St\, Woolloongabba QLD 4102
+URL:https://thegabba.com.au/events/queensland-bulls-v-victoria---day-1
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Queensland Bulls v Victoria – Day 2
+DTSTART;TZID="UTC+10:00":20251123T233000
+DTEND;TZID="UTC+10:00":20251124T013000
+DTSTAMP:20251116T230641Z
+UID:2025-11-23T13:30:00@https://thegabba.com.au/events/queensland-bulls-v-
+ victoria---day-2
+DESCRIPTION:1:30pm - Gates open\n2:00pm - First Ball\n\nMore info: https:/
+ /thegabba.com.au/events/queensland-bulls-v-victoria---day-2
+LOCATION:The Gabba\, Vulture St\, Woolloongabba QLD 4102
+URL:https://thegabba.com.au/events/queensland-bulls-v-victoria---day-2
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Queensland Bulls v Victoria – Day 3
+DTSTART;TZID="UTC+10:00":20251124T233000
+DTEND;TZID="UTC+10:00":20251125T013000
+DTSTAMP:20251116T230641Z
+UID:2025-11-24T13:30:00@https://thegabba.com.au/events/queensland-bulls-v-
+ victoria---day-3
+DESCRIPTION:1:30pm - Gates open\n2:00pm - First Ball\n\nMore info: https:/
+ /thegabba.com.au/events/queensland-bulls-v-victoria---day-3
+LOCATION:The Gabba\, Vulture St\, Woolloongabba QLD 4102
+URL:https://thegabba.com.au/events/queensland-bulls-v-victoria---day-3
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Queensland Bulls v Victoria – Day 4
+DTSTART;TZID="UTC+10:00":20251125T233000
+DTEND;TZID="UTC+10:00":20251126T013000
+DTSTAMP:20251116T230641Z
+UID:2025-11-25T13:30:00@https://thegabba.com.au/events/queensland-bulls-v-
+ victoria---day-4
+DESCRIPTION:1:30pm - Gates open\n2:00pm - First Ball\n\nMore info: https:/
+ /thegabba.com.au/events/queensland-bulls-v-victoria---day-4
+LOCATION:The Gabba\, Vulture St\, Woolloongabba QLD 4102
+URL:https://thegabba.com.au/events/queensland-bulls-v-victoria---day-4
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NRMA Insurance Test Australia v England - Day 1
+DTSTART;TZID="UTC+10:00":20251204T223000
+DTEND;TZID="UTC+10:00":20251205T003000
+DTSTAMP:20251116T230641Z
+UID:2025-12-04T12:30:00@https://thegabba.com.au/events/australia-v-england
+ ---day-1
+DESCRIPTION:12:30pm - Gates open\n2:00pm - First Ball\n\nMore info: https:
+ //thegabba.com.au/events/australia-v-england---day-1
+LOCATION:The Gabba\, Vulture St\, Woolloongabba QLD 4102
+URL:https://thegabba.com.au/events/australia-v-england---day-1
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NRMA Insurance Test Australia v England - Day 2
+DTSTART;TZID="UTC+10:00":20251205T223000
+DTEND;TZID="UTC+10:00":20251206T003000
+DTSTAMP:20251116T230641Z
+UID:2025-12-05T12:30:00@https://thegabba.com.au/events/australia-v-england
+ ---day-2
+DESCRIPTION:12:30pm - Gates open\n2:00pm - First Ball\n\nMore info: https:
+ //thegabba.com.au/events/australia-v-england---day-2
+LOCATION:The Gabba\, Vulture St\, Woolloongabba QLD 4102
+URL:https://thegabba.com.au/events/australia-v-england---day-2
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NRMA Insurance Test Australia v England - Day 3
+DTSTART;TZID="UTC+10:00":20251206T223000
+DTEND;TZID="UTC+10:00":20251207T003000
+DTSTAMP:20251116T230641Z
+UID:2025-12-06T12:30:00@https://thegabba.com.au/events/australia-v-england
+ ---day-3
+DESCRIPTION:12:30pm - Gates open\n2:00pm - First Ball\n\nMore info: https:
+ //thegabba.com.au/events/australia-v-england---day-3
+LOCATION:The Gabba\, Vulture St\, Woolloongabba QLD 4102
+URL:https://thegabba.com.au/events/australia-v-england---day-3
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NRMA Insurance Test Australia v England - Day 4
+DTSTART;TZID="UTC+10:00":20251207T230000
+DTEND;TZID="UTC+10:00":20251208T010000
+DTSTAMP:20251116T230641Z
+UID:2025-12-07T13:00:00@https://thegabba.com.au/events/australia-v-england
+ ---day-4
+DESCRIPTION:1:00pm - Gates open\n2:00pm - First Ball\n\nMore info: https:/
+ /thegabba.com.au/events/australia-v-england---day-4
+LOCATION:The Gabba\, Vulture St\, Woolloongabba QLD 4102
+URL:https://thegabba.com.au/events/australia-v-england---day-4
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NRMA Insurance Test Australia v England - Day 5
+DTSTART;TZID="UTC+10:00":20251209T000000
+DTEND;TZID="UTC+10:00":20251209T020000
+DTSTAMP:20251116T230641Z
+UID:2025-12-08T14:00:00@https://thegabba.com.au/events/australia-v-england
+ ---day-5
+DESCRIPTION:TBC - Gates open\n2:00pm - First Ball\n\nMore info: https://th
+ egabba.com.au/events/australia-v-england---day-5
+LOCATION:The Gabba\, Vulture St\, Woolloongabba QLD 4102
+URL:https://thegabba.com.au/events/australia-v-england---day-5
+END:VEVENT
+END:VCALENDAR
