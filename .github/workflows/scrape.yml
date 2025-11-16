@@ -14,6 +14,10 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    # --------------------------
+
     steps:
       - name: 1. Check out repository
         uses: actions/checkout@v4
