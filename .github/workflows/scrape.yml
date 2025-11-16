@@ -43,8 +43,23 @@ jobs:
         run: |
           # Use the github.workspace variable to find the python script
           python ${{ github.workspace }}/gabba_event_scraper.py
+        # We expect this to fail, so we continue on error
+        continue-on-error: true
 
-      - name: 6. Commit and push the updated .ics file
+      # --- NEW DEBUG STEP ---
+      - name: 6. Upload debug HTML
+        # This will run even if the previous step failed
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-html
+          path: debug_page.html
+
+      # Step 7 will only run if Step 5 was successful
+      - name: 7. Commit and push the updated .ics file
+        # This 'if' condition means this step only runs if the scraper (step 5)
+        # did NOT fail.
+        if: steps[5].outcome == 'success'
         run: |
           # We must set the working directory for git to find the file
           cd ${{ github.workspace }}
