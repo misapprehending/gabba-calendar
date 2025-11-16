@@ -5,6 +5,12 @@ from datetime import datetime
 from dateutil.parser import parse as parse_date
 import os
 import sys
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
 
 # --- CONFIGURATION ---
 EVENTS_URL = "https://thegabba.com.au/whats-on"
@@ -12,7 +18,8 @@ OUTPUT_FILE = "gabba-events.ics"
 
 # --- THESE ARE THE CORRECT, VERIFIED CSS SELECTORS (from your HTML) ---
 
-# Selects the main <a> tag that acts as the container for an event
+# This selector is used to WAIT for the page to finish loading.
+# We will wait until the browser has rendered at least one event link.
 EVENT_CONTAINER_SELECTOR = 'a[href^="/events/"][target="_self"]'
 
 # Selects the event title
@@ -26,28 +33,60 @@ EVENT_TIME_SELECTORS = 'div.text-h6'
 
 # ---------------------------------------------------
 
+def get_page_source_with_selenium():
+    """
+    Uses a headless Chrome browser (Selenium) to load the page,
+    wait for JavaScript to render the events, and then returns the
+    full page's HTML source.
+    """
+    print("Setting up headless Chrome browser...")
+    chrome_options = Options()
+    chrome_options.add_argument("--headless") # Run without a GUI
+    chrome_options.add_argument("--no-sandbox") # Required for GitHub Actions
+    chrome_options.add_argument("--disable-dev-shm-usage") # Required for GitHub Actions
+    chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
 
-def scrape_gabba_events():
-    """
-    Fetches event data from The Gabba website and returns a list of dicts.
-    """
-    print(f"Fetching events from {EVENTS_URL}...")
-    
-    headers = {
-        # Set a user agent to mimic a browser
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-        'Referer': 'https://www.google.com/'
-    }
-    
+    driver = None
     try:
-        response = requests.get(EVENTS_URL, headers=headers)
-        response.raise_for_status()  # Raises an error for bad responses (4xx or 5xx)
-    except requests.exceptions.RequestException as e:
-        print(f"Error: Could not fetch URL. {e}")
+        driver = webdriver.Chrome(options=chrome_options)
+        print(f"Fetching {EVENTS_URL} with Selenium...")
+        driver.get(EVENTS_URL)
+
+        # THIS IS THE KEY: Wait for up to 30 seconds for the FIRST event
+        # to appear. This ensures the JavaScript has finished running.
+        print(f"Waiting for events to load (max 30s)... Selector: {EVENT_CONTAINER_SELECTOR}")
+        WebDriverWait(driver, 30).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, EVENT_CONTAINER_SELECTOR))
+        )
+
+        print("Events found! Getting page source.")
+        # Scroll down a bit to trigger any lazy-loading, just in case
+        driver.execute_script("window.scrollTo(0, 1000);")
+        time.sleep(2) # Give it a moment
+
+        return driver.page_source
+
+    except Exception as e:
+        print(f"Error during Selenium page load: {e}")
+        if driver:
+            print("Page source at time of error:", driver.page_source)
+        return None
+    finally:
+        if driver:
+            driver.quit()
+            print("Browser closed.")
+
+
+def scrape_gabba_events(html_content):
+    """
+    Takes the full HTML content from Selenium and parses it.
+    """
+    if not html_content:
+        print("Error: No HTML content provided to parser.")
         return []
 
-    print("Successfully fetched page. Parsing HTML...")
-    soup = BeautifulSoup(response.text, 'html.parser')
+    print("Parsing HTML...")
+    soup = BeautifulSoup(html_content, 'html.parser')
     
     events = []
     # Select all event containers
@@ -186,7 +225,7 @@ def create_ical_file(events):
 
 
 if __name__ == "__main__":
-    print("--- Gabba iCal Scraper (Corrected Scraping Method) ---")
+    print("--- Gabba iCal Scraper (Selenium Method) ---")
     
     # Set the working directory for the GitHub Action
     # This ensures the output file is created in the repo root
@@ -194,13 +233,21 @@ if __name__ == "__main__":
         os.chdir(os.getenv('GITHUB_WORKSPACE'))
         print(f"Running in GITHUB_WORKSPACE: {os.getcwd()}")
     
-    events = scrape_gabba_events()
-    if events:
-        create_ical_file(events)
+    # 1. Get the full HTML source using Selenium
+    html_content = get_page_source_with_selenium()
+    
+    if html_content:
+        # 2. Parse the HTML
+        events = scrape_gabba_events(html_content)
+        
+        if events:
+            # 3. Create the file
+            create_ical_file(events)
+        else:
+            print("No events found or parsed, iCal file was not updated.")
+            sys.exit(1) # Exit with error
     else:
-        print("No events found or parsed, iCal file was not updated.")
-        # We exit with an error if no events are found, so the Action fails
-        # This prevents an empty calendar from being committed
-        sys.exit(1)
+        print("Failed to get page source with Selenium. Aborting.")
+        sys.exit(1) # Exit with error
     
     print("Script finished.")
