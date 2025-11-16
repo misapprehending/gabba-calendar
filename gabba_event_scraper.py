@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from icalendar import Calendar, Event
-from datetime import datetime
+from datetime import datetime, timedelta
 from dateutil.parser import parse as parse_date
 import os
 import sys
@@ -15,13 +15,12 @@ from selenium.webdriver.chrome.options import Options
 # --- CONFIGURATION ---
 EVENTS_URL = "https://thegabba.com.au/whats-on"
 OUTPUT_FILE = "gabba-events.ics"
-DEBUG_HTML_FILE = "debug_page.html" # New file for debugging
 
-# --- THESE ARE THE CORRECT, VERIFIED CSS SELECTORS (from your HTML) ---
+# --- THESE ARE THE CORRECT, VERIFIED CSS SELECTORS ---
 
-# This selector is used to WAIT for the page to finish loading.
-# We will wait until the browser has rendered at least one event link.
-EVENT_CONTAINER_SELECTOR = 'a[href^="/events/"][target="_self"]'
+# This selector is used to find the event container.
+# It looks for an <a> tag that has an href starting with the full URL.
+EVENT_CONTAINER_SELECTOR = 'a[href^="https://thegabba.com.au/events/"][target="_self"]'
 
 # Selects the event title
 EVENT_TITLE_SELECTOR = 'h3.text-h4'
@@ -47,21 +46,18 @@ def get_page_source_with_selenium():
     chrome_options.add_argument("--disable-dev-shm-usage") # Required for GitHub Actions
     chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
     
-    # --- THIS IS THE FIX ---
     # This hides the "navigator.webdriver" flag that websites use to detect Selenium
     chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
-    # -----------------------
-
+    
     driver = None
     try:
         driver = webdriver.Chrome(options=chrome_options)
         print(f"Fetching {EVENTS_URL} with Selenium...", flush=True)
         driver.get(EVENTS_URL)
 
-        # --- NEW STRATEGY ---
-        # The WebDriverWait is failing, even though the error log shows the element
-        # exists. This suggests a race condition with the Vue.js app.
-        # We will replace the "smart" wait with a longer "dumb" wait.
+        # Wait 15 seconds for all dynamic content (Vue.js) to load and settle.
+        # This is more reliable than waiting for a specific element that
+        # might be re-rendered.
         print("Waiting 15s for dynamic content to load...", flush=True)
         time.sleep(15)
         # --------------------
@@ -83,23 +79,6 @@ def get_page_source_with_selenium():
             driver.quit()
             print("Browser closed.", flush=True)
 
-def save_html_for_debugging(html_content):
-    """
-    Saves the retrieved HTML to a file for debugging.
-    Assumes we are already in the correct working directory (from os.chdir in main).
-    """
-    if not html_content:
-        print("No HTML content to save.", flush=True)
-        return
-        
-    try:
-        # We've already os.chdir()'d in main, so just use the relative path
-        with open(DEBUG_HTML_FILE, 'w', encoding='utf-8') as f:
-            f.write(html_content)
-        # Print the absolute path to confirm where it was saved
-        print(f"Successfully saved debug HTML to {os.path.abspath(DEBUG_HTML_FILE)}", flush=True)
-    except Exception as e:
-        print(f"Error saving debug HTML: {e}", flush=True)
 
 def scrape_gabba_events(html_content):
     """
@@ -131,8 +110,7 @@ def scrape_gabba_events(html_content):
 
             # 2. Get URL
             url = event['href']
-            if not url.startswith('http'):
-                url = f"https://thegabba.com.au{url}"
+            # URL is already absolute, so no need to join
 
             # 3. Get Date
             date_block = event.select_one(EVENT_DATE_BLOCK_SELECTOR)
@@ -167,9 +145,19 @@ def scrape_gabba_events(html_content):
                     time_desc = time_spans[1].text.strip()
                     description_lines.append(f"{time_val} - {time_desc}")
                     
-                    # Try to use the first valid time as the start time
-                    if not start_time_str and time_val != "TBC":
+                    # --- As requested: Use 'Gates open' time ---
+                    # We check if 'gates open' is in the description
+                    # and if we haven't already found our start time.
+                    if not start_time_str and "gates open" in time_desc.lower() and time_val != "TBC":
                         start_time_str = time_val
+            
+            # Fallback: If "Gates open" wasn't found, use the first available time
+            if not start_time_str:
+                for line in description_lines:
+                    time_val = line.split(' - ')[0]
+                    if time_val != "TBC":
+                        start_time_str = time_val
+                        break # Use the first one
 
             # 5. Combine Date and Time
             full_datetime_str = date_string
@@ -219,13 +207,18 @@ def create_ical_file(events):
         ievent.add('summary', event['title'])
         
         # Add timezone info (Australia/Brisbane)
-        ievent.add('dtstart', event['start_datetime'], parameters={'TZID': 'Australia/Brisbane'})
+        # Note: We can't use 'TZID' without a full VTIMEZONE component,
+        # so we'll use UTC offsets. Brisbane is UTC+10.
+        start_dt_utc = event['start_datetime'].astimezone(datetime.timezone(timedelta(hours=10)))
+        
+        ievent.add('dtstart', start_dt_utc)
         
         if not event['is_all_day']:
             # Add an end time (assuming 2 hours for now, can be adjusted)
-            ievent.add('dtend', event['start_datetime'] + timedelta(hours=2), parameters={'TZID': 'Australia/Brisbane'})
+            end_dt_utc = (event['start_datetime'] + timedelta(hours=2)).astimezone(datetime.timezone(timedelta(hours=10)))
+            ievent.add('dtend', end_dt_utc)
         
-        ievent.add('dtstamp', datetime.now())
+        ievent.add('dtstamp', datetime.now(datetime.timezone.utc))
         ievent.add('location', 'The Gabba, Vulture St, Woolloongabba QLD 4102')
         ievent.add('description', f"{event['description']}\n\nMore info: {event['url']}")
         ievent.add('url', event['url'])
@@ -257,11 +250,6 @@ if __name__ == "__main__":
     # 1. Get the full HTML source using Selenium
     html_content = get_page_source_with_selenium()
     
-    # --- NEW DEBUG STEP ---
-    # Save the HTML we got from Selenium so we can inspect it.
-    save_html_for_debugging(html_content)
-    # ----------------------
-
     if html_content:
         # 2. Parse the HTML
         events = scrape_gabba_events(html_content)
