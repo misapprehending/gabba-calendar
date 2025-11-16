@@ -45,12 +45,22 @@ def get_page_source_with_selenium():
     chrome_options.add_argument("--no-sandbox") # Required for GitHub Actions
     chrome_options.add_argument("--disable-dev-shm-usage") # Required for GitHub Actions
     chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
+    
+    # --- THIS IS THE FIX ---
+    # This hides the "navigator.webdriver" flag that websites use to detect Selenium
+    chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    # -----------------------
 
     driver = None
     try:
         driver = webdriver.Chrome(options=chrome_options)
         print(f"Fetching {EVENTS_URL} with Selenium...")
         driver.get(EVENTS_URL)
+
+        # Let's give the page a simple 5 seconds to settle *before*
+        # we start probing it with WebDriverWait. This adds stability.
+        print("Waiting 5s for JavaScript to settle...")
+        time.sleep(5)
 
         # THIS IS THE KEY: Wait for up to 30 seconds for the FIRST event
         # to appear. This ensures the JavaScript has finished running.
