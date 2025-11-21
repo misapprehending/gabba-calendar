@@ -9,7 +9,7 @@ BEGIN:VEVENT
 SUMMARY:Queensland Bulls v Victoria – Day 1
 DTSTART:20251122T033000Z
 DTEND:20251122T063000Z
-DTSTAMP:20251121T021023Z
+DTSTAMP:20251121T185525Z
 UID:2025-11-22T13:30:00+10:00@https://thegabba.com.au/events/queensland-bu
  lls-v-victoria---day-1
 DESCRIPTION:1:30pm - Gates open\n2:00pm - First Ball\n\nMore info: https:/
@@ -21,7 +21,7 @@ BEGIN:VEVENT
 SUMMARY:Queensland Bulls v Victoria – Day 2
 DTSTART:20251123T033000Z
 DTEND:20251123T063000Z
-DTSTAMP:20251121T021023Z
+DTSTAMP:20251121T185525Z
 UID:2025-11-23T13:30:00+10:00@https://thegabba.com.au/events/queensland-bu
  lls-v-victoria---day-2
 DESCRIPTION:1:30pm - Gates open\n2:00pm - First Ball\n\nMore info: https:/
@@ -33,7 +33,7 @@ BEGIN:VEVENT
 SUMMARY:Queensland Bulls v Victoria – Day 3
 DTSTART:20251124T033000Z
 DTEND:20251124T063000Z
-DTSTAMP:20251121T021023Z
+DTSTAMP:20251121T185525Z
 UID:2025-11-24T13:30:00+10:00@https://thegabba.com.au/events/queensland-bu
  lls-v-victoria---day-3
 DESCRIPTION:1:30pm - Gates open\n2:00pm - First Ball\n\nMore info: https:/
@@ -45,7 +45,7 @@ BEGIN:VEVENT
 SUMMARY:Queensland Bulls v Victoria – Day 4
 DTSTART:20251125T033000Z
 DTEND:20251125T063000Z
-DTSTAMP:20251121T021023Z
+DTSTAMP:20251121T185525Z
 UID:2025-11-25T13:30:00+10:00@https://thegabba.com.au/events/queensland-bu
  lls-v-victoria---day-4
 DESCRIPTION:1:30pm - Gates open\n2:00pm - First Ball\n\nMore info: https:/
@@ -57,7 +57,7 @@ BEGIN:VEVENT
 SUMMARY:NRMA Insurance Test Australia v England - Day 1
 DTSTART:20251204T023000Z
 DTEND:20251204T053000Z
-DTSTAMP:20251121T021023Z
+DTSTAMP:20251121T185525Z
 UID:2025-12-04T12:30:00+10:00@https://thegabba.com.au/events/australia-v-e
  ngland---day-1
 DESCRIPTION:12:30pm - Gates open\n2:00pm - First Ball\n\nMore info: https:
@@ -69,7 +69,7 @@ BEGIN:VEVENT
 SUMMARY:NRMA Insurance Test Australia v England - Day 2
 DTSTART:20251205T023000Z
 DTEND:20251205T053000Z
-DTSTAMP:20251121T021023Z
+DTSTAMP:20251121T185525Z
 UID:2025-12-05T12:30:00+10:00@https://thegabba.com.au/events/australia-v-e
  ngland---day-2
 DESCRIPTION:12:30pm - Gates open\n2:00pm - First Ball\n\nMore info: https:
@@ -81,7 +81,7 @@ BEGIN:VEVENT
 SUMMARY:NRMA Insurance Test Australia v England - Day 3
 DTSTART:20251206T023000Z
 DTEND:20251206T053000Z
-DTSTAMP:20251121T021023Z
+DTSTAMP:20251121T185525Z
 UID:2025-12-06T12:30:00+10:00@https://thegabba.com.au/events/australia-v-e
  ngland---day-3
 DESCRIPTION:12:30pm - Gates open\n2:00pm - First Ball\n\nMore info: https:
@@ -93,7 +93,7 @@ BEGIN:VEVENT
 SUMMARY:NRMA Insurance Test Australia v England - Day 4
 DTSTART:20251207T030000Z
 DTEND:20251207T060000Z
-DTSTAMP:20251121T021023Z
+DTSTAMP:20251121T185525Z
 UID:2025-12-07T13:00:00+10:00@https://thegabba.com.au/events/australia-v-e
  ngland---day-4
 DESCRIPTION:1:00pm - Gates open\n2:00pm - First Ball\n\nMore info: https:/
@@ -105,7 +105,7 @@ BEGIN:VEVENT
 SUMMARY:NRMA Insurance Test Australia v England - Day 5
 DTSTART:20251208T040000Z
 DTEND:20251208T070000Z
-DTSTAMP:20251121T021023Z
+DTSTAMP:20251121T185525Z
 UID:2025-12-08T14:00:00+10:00@https://thegabba.com.au/events/australia-v-e
  ngland---day-5
 DESCRIPTION:TBC - Gates open\n2:00pm - First Ball\n\nMore info: https://th
@@ -117,7 +117,7 @@ BEGIN:VEVENT
 SUMMARY:KFC BBL Brisbane Heat v Perth Scorchers
 DTSTART:20251219T064500Z
 DTEND:20251219T094500Z
-DTSTAMP:20251121T021023Z
+DTSTAMP:20251121T185525Z
 UID:2025-12-19T16:45:00+10:00@https://thegabba.com.au/events/brisbane-heat
  -v-perth-scorchers-
 DESCRIPTION:4:45pm - Gates open\n6:15pm - First Ball\n\nMore info: https:/
@@ -129,7 +129,7 @@ BEGIN:VEVENT
 SUMMARY:KFC BBL Brisbane Heat v Adelaide Strikers
 DTSTART:20251227T064500Z
 DTEND:20251227T094500Z
-DTSTAMP:20251121T021023Z
+DTSTAMP:20251121T185525Z
 UID:2025-12-27T16:45:00+10:00@https://thegabba.com.au/events/brisbane-heat
  -v-adelaide-strikers-
 DESCRIPTION:4:45pm - Gates open\n6:15pm - First Ball\n\nMore info: https:/
@@ -141,7 +141,7 @@ BEGIN:VEVENT
 SUMMARY:KFC BBL Brisbane Heat v Melbourne Stars
 DTSTART:20260102T064500Z
 DTEND:20260102T094500Z
-DTSTAMP:20251121T021023Z
+DTSTAMP:20251121T185525Z
 UID:2026-01-02T16:45:00+10:00@https://thegabba.com.au/events/brisbane-heat
  -v-melbourne-stars-
 DESCRIPTION:4:45pm - Gates open\n6:15pm - First Ball\n\nMore info: https:/
@@ -153,7 +153,7 @@ BEGIN:VEVENT
 SUMMARY:KFC BBL Brisbane Heat v Sydney Thunder
 DTSTART:20260110T033000Z
 DTEND:20260110T063000Z
-DTSTAMP:20251121T021023Z
+DTSTAMP:20251121T185525Z
 UID:2026-01-10T13:30:00+10:00@https://thegabba.com.au/events/brisbane-heat
  -v-sydney-thunder-
 DESCRIPTION:1:30pm - Gates open\n3:00pm - First Ball\n\nMore info: https:/
@@ -165,7 +165,7 @@ BEGIN:VEVENT
 SUMMARY:KFC BBL Brisbane Heat v Sydney Sixers
 DTSTART:20260118T064500Z
 DTEND:20260118T094500Z
-DTSTAMP:20251121T021023Z
+DTSTAMP:20251121T185525Z
 UID:2026-01-18T16:45:00+10:00@https://thegabba.com.au/events/brisbane-heat
  -v-sydney-sixers
 DESCRIPTION:4:45pm - Gates open\n6:15pm - First Ball\n\nMore info: https:/
@@ -177,7 +177,7 @@ BEGIN:VEVENT
 SUMMARY:Queensland Bulls v South Australia – Day 1
 DTSTART:20260215T232500Z
 DTEND:20260216T022500Z
-DTSTAMP:20251121T021023Z
+DTSTAMP:20251121T185525Z
 UID:2026-02-16T09:25:00+10:00@https://thegabba.com.au/events/queensland-bu
  lls-v-south-australia---day-1
 DESCRIPTION:9:25am - Gates open\n10:00am - First Ball\n\nMore info: https:
@@ -190,7 +190,7 @@ BEGIN:VEVENT
 SUMMARY:Queensland Bulls v South Australia – Day 2
 DTSTART:20260216T232500Z
 DTEND:20260217T022500Z
-DTSTAMP:20251121T021023Z
+DTSTAMP:20251121T185525Z
 UID:2026-02-17T09:25:00+10:00@https://thegabba.com.au/events/queensland-bu
  lls-v-south-australia---day-2
 DESCRIPTION:9:25am - Gates open\n10:00am - First Ball\n\nMore info: https:
@@ -203,7 +203,7 @@ BEGIN:VEVENT
 SUMMARY:Queensland Bulls v South Australia – Day 3
 DTSTART:20260217T232500Z
 DTEND:20260218T022500Z
-DTSTAMP:20251121T021023Z
+DTSTAMP:20251121T185525Z
 UID:2026-02-18T09:25:00+10:00@https://thegabba.com.au/events/queensland-bu
  lls-v-south-australia---day-3
 DESCRIPTION:9:25am - Gates open\n10:00am - Start time\n\nMore info: https:
@@ -216,7 +216,7 @@ BEGIN:VEVENT
 SUMMARY:Queensland Bulls v South Australia – Day 4
 DTSTART:20260218T232500Z
 DTEND:20260219T022500Z
-DTSTAMP:20251121T021023Z
+DTSTAMP:20251121T185525Z
 UID:2026-02-19T09:25:00+10:00@https://thegabba.com.au/events/queensland-bu
  lls-v-south-australia---day-4
 DESCRIPTION:9:25am - Gates open\n10:00am - First Ball\n\nMore info: https:
@@ -229,7 +229,7 @@ BEGIN:VEVENT
 SUMMARY:Queensland Bulls v South Australia
 DTSTART:20260220T232500Z
 DTEND:20260221T022500Z
-DTSTAMP:20251121T021023Z
+DTSTAMP:20251121T185525Z
 UID:2026-02-21T09:25:00+10:00@https://thegabba.com.au/events/queensland-bu
  lls-v-western-australia
 DESCRIPTION:9:25am - Gates open\n10:00am - First Ball\n\nMore info: https:
