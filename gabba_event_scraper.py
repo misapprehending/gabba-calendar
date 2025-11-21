@@ -33,9 +33,9 @@ def get_page_source_with_selenium():
     """
     print("Setting up headless Chrome browser...", flush=True)
     chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--headless") 
+    chrome_options.add_argument("--no-sandbox") 
+    chrome_options.add_argument("--disable-dev-shm-usage") 
     chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
     chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
     
@@ -49,22 +49,21 @@ def get_page_source_with_selenium():
         time.sleep(10)
 
         # --- CLICK "SEE MORE" LOOP ---
-        # We will try to click the button up to 10 times.
+        # Try to click up to 10 times to load all future events
         for i in range(10):
             try:
                 print(f"Checking for 'See more' button (Attempt {i+1})...", flush=True)
                 
-                # Scroll to bottom to ensure button is in DOM (sometimes helps triggers)
+                # Scroll to bottom
                 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
                 time.sleep(1)
 
-                # Look for an element with text "See more" (Case sensitive usually, but reliable)
-                # This XPath finds any element (*) containing that specific text
+                # Look for an element with text "See more"
                 load_more_button = WebDriverWait(driver, 5).until(
                     EC.presence_of_element_located((By.XPATH, "//*[contains(text(), 'See more')]"))
                 )
                 
-                # Force click with JavaScript (bypasses overlays/cookie banners)
+                # Force click with JavaScript
                 print("Button found. Clicking...", flush=True)
                 driver.execute_script("arguments[0].click();", load_more_button)
                 
@@ -72,7 +71,6 @@ def get_page_source_with_selenium():
                 time.sleep(4)
                 
             except Exception:
-                # If timeout occurs (button not found), we assume we reached the end
                 print("No 'See more' button found (or end of list reached).", flush=True)
                 break
         # -----------------------------
@@ -129,16 +127,34 @@ def scrape_gabba_events(html_content):
                 day_num = date_parts[1].text.strip() 
                 month_str = date_parts[2].text.strip() 
                 
-                # We need to add the current year
-                # Note: We use local system time for 'now', but this logic handles year rollover mostly fine
+                # --- LOGIC UPDATE: YEAR HANDLING ---
                 current_now = datetime.now()
-                current_year = current_now.year
-                date_string = f"{day_num} {month_str} {current_year}"
+                year_to_use = current_now.year
                 
-                # Check if the event is in the past (e.g., Dec event in Jan)
-                parsed_date_check = parse_date(date_string)
-                if parsed_date_check < current_now.replace(hour=0, minute=0, second=0, microsecond=0) and current_now.month == 1:
-                     date_string = f"{day_num} {month_str} {current_year + 1}"
+                # Construct a temporary date string using the CURRENT year
+                temp_date_str = f"{day_num} {month_str} {year_to_use}"
+                
+                try:
+                    # Parse strictly to check "age"
+                    temp_date = parse_date(temp_date_str)
+                    
+                    # Calculate 30 days ago from right now
+                    thirty_days_ago = current_now - timedelta(days=30)
+                    
+                    # If the event date (with current year) is OLDER than 30 days ago,
+                    # it implies this event is actually for next year.
+                    # Example: It's Nov 2025. We parse "Jan 15". 
+                    # Jan 15 2025 is < Oct 2025. So we bump year to 2026.
+                    if temp_date < thirty_days_ago:
+                        year_to_use += 1
+                        
+                except ValueError:
+                    pass # Keep current year if parsing check fails slightly
+                
+                # Final date string with the correct year
+                date_string = f"{day_num} {month_str} {year_to_use}"
+                # -----------------------------------
+
             else:
                 print(f"Warning: Could not parse date for event: {title}", flush=True)
                 continue
@@ -177,14 +193,13 @@ def scrape_gabba_events(html_content):
                 except ValueError:
                     print(f"Warning: Could not parse time '{start_time_str}'. Defaulting to all-day.", flush=True)
             
-            # --- TIMEZONE FIX IS HERE ---
-            # 1. Parse the string (creates a naive datetime, e.g. 2023-11-22 18:30:00)
+            # --- TIMEZONE FIX ---
+            # 1. Parse the string (creates a naive datetime)
             start_datetime = parse_date(full_datetime_str)
             
-            # 2. Force the object to be Brisbane Time (replace tzinfo)
-            # This tells Python: "This naive time IS actually Brisbane time"
+            # 2. Force the object to be Brisbane Time
             start_datetime = start_datetime.replace(tzinfo=BRISBANE_TZ)
-            # ----------------------------
+            # --------------------
 
             events.append({
                 'title': title,
@@ -218,15 +233,13 @@ def create_ical_file(events):
         ievent = Event()
         ievent.add('summary', event['title'])
         
-        # --- TIMEZONE EXPORT FIX ---
-        # The event['start_datetime'] is already timezone-aware (Brisbane).
-        # We convert it to UTC for the .ics file (Standard practice).
+        # Convert Brisbane time to UTC for the .ics file
         start_dt_utc = event['start_datetime'].astimezone(timezone.utc)
         
         ievent.add('dtstart', start_dt_utc)
         
         if not event['is_all_day']:
-            # Calculate end time based on the Brisbane time, then convert end to UTC
+            # Calculate end time (Brisbane + 3 hours), then convert to UTC
             end_dt_brisbane = event['start_datetime'] + timedelta(hours=3)
             end_dt_utc = end_dt_brisbane.astimezone(timezone.utc)
             ievent.add('dtend', end_dt_utc)
