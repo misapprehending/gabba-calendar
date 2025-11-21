@@ -28,13 +28,14 @@ EVENT_TIME_SELECTORS = 'div.text-h6'
 
 def get_page_source_with_selenium():
     """
-    Uses a headless Chrome browser (Selenium) to load the page.
+    Uses a headless Chrome browser (Selenium) to load the page,
+    continually clicks 'See more', and returns the full HTML.
     """
     print("Setting up headless Chrome browser...", flush=True)
     chrome_options = Options()
-    chrome_options.add_argument("--headless") 
-    chrome_options.add_argument("--no-sandbox") 
-    chrome_options.add_argument("--disable-dev-shm-usage") 
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
     chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
     
@@ -44,13 +45,39 @@ def get_page_source_with_selenium():
         print(f"Fetching {EVENTS_URL} with Selenium...", flush=True)
         driver.get(EVENTS_URL)
 
-        print("Waiting 15s for dynamic content to load...", flush=True)
-        time.sleep(15)
-        
-        print("Events should be loaded. Getting page source.", flush=True)
-        driver.execute_script("window.scrollTo(0, 1000);")
-        time.sleep(2)
+        print("Waiting 10s for initial load...", flush=True)
+        time.sleep(10)
 
+        # --- CLICK "SEE MORE" LOOP ---
+        # We will try to click the button up to 10 times.
+        for i in range(10):
+            try:
+                print(f"Checking for 'See more' button (Attempt {i+1})...", flush=True)
+                
+                # Scroll to bottom to ensure button is in DOM (sometimes helps triggers)
+                driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                time.sleep(1)
+
+                # Look for an element with text "See more" (Case sensitive usually, but reliable)
+                # This XPath finds any element (*) containing that specific text
+                load_more_button = WebDriverWait(driver, 5).until(
+                    EC.presence_of_element_located((By.XPATH, "//*[contains(text(), 'See more')]"))
+                )
+                
+                # Force click with JavaScript (bypasses overlays/cookie banners)
+                print("Button found. Clicking...", flush=True)
+                driver.execute_script("arguments[0].click();", load_more_button)
+                
+                # Wait for new items to populate
+                time.sleep(4)
+                
+            except Exception:
+                # If timeout occurs (button not found), we assume we reached the end
+                print("No 'See more' button found (or end of list reached).", flush=True)
+                break
+        # -----------------------------
+
+        print("All events loaded. Getting page source.", flush=True)
         return driver.page_source
 
     except Exception as e:
