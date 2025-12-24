@@ -9,7 +9,7 @@ BEGIN:VEVENT
 SUMMARY:KFC BBL Brisbane Heat v Adelaide Strikers
 DTSTART:20251227T064500Z
 DTEND:20251227T094500Z
-DTSTAMP:20251223T190014Z
+DTSTAMP:20251224T185855Z
 UID:2025-12-27T16:45:00+10:00@https://thegabba.com.au/events/brisbane-heat
  -v-adelaide-strikers-
 DESCRIPTION:4:45pm - Gates open\n6:15pm - First Ball\n\nMore info: https:/
@@ -21,7 +21,7 @@ BEGIN:VEVENT
 SUMMARY:KFC BBL Brisbane Heat v Melbourne Stars
 DTSTART:20260102T064500Z
 DTEND:20260102T094500Z
-DTSTAMP:20251223T190014Z
+DTSTAMP:20251224T185855Z
 UID:2026-01-02T16:45:00+10:00@https://thegabba.com.au/events/brisbane-heat
  -v-melbourne-stars-
 DESCRIPTION:4:45pm - Gates open\n6:15pm - First Ball\n\nMore info: https:/
@@ -33,7 +33,7 @@ BEGIN:VEVENT
 SUMMARY:KFC BBL Brisbane Heat v Sydney Thunder
 DTSTART:20260110T033000Z
 DTEND:20260110T063000Z
-DTSTAMP:20251223T190014Z
+DTSTAMP:20251224T185855Z
 UID:2026-01-10T13:30:00+10:00@https://thegabba.com.au/events/brisbane-heat
  -v-sydney-thunder-
 DESCRIPTION:1:30pm - Gates open\n3:00pm - First Ball\n\nMore info: https:/
@@ -45,7 +45,7 @@ BEGIN:VEVENT
 SUMMARY:KFC BBL Brisbane Heat v Sydney Sixers
 DTSTART:20260118T064500Z
 DTEND:20260118T094500Z
-DTSTAMP:20251223T190014Z
+DTSTAMP:20251224T185855Z
 UID:2026-01-18T16:45:00+10:00@https://thegabba.com.au/events/brisbane-heat
  -v-sydney-sixers
 DESCRIPTION:4:45pm - Gates open\n6:15pm - First Ball\n\nMore info: https:/
@@ -57,7 +57,7 @@ BEGIN:VEVENT
 SUMMARY:Queensland Bulls v South Australia – Day 1
 DTSTART:20260215T232500Z
 DTEND:20260216T022500Z
-DTSTAMP:20251223T190014Z
+DTSTAMP:20251224T185855Z
 UID:2026-02-16T09:25:00+10:00@https://thegabba.com.au/events/queensland-bu
  lls-v-south-australia---day-1
 DESCRIPTION:9:25am - Gates open\n10:00am - First Ball\n\nMore info: https:
@@ -70,7 +70,7 @@ BEGIN:VEVENT
 SUMMARY:Queensland Bulls v South Australia – Day 2
 DTSTART:20260216T232500Z
 DTEND:20260217T022500Z
-DTSTAMP:20251223T190014Z
+DTSTAMP:20251224T185855Z
 UID:2026-02-17T09:25:00+10:00@https://thegabba.com.au/events/queensland-bu
  lls-v-south-australia---day-2
 DESCRIPTION:9:25am - Gates open\n10:00am - First Ball\n\nMore info: https:
@@ -83,7 +83,7 @@ BEGIN:VEVENT
 SUMMARY:Queensland Bulls v South Australia – Day 3
 DTSTART:20260217T232500Z
 DTEND:20260218T022500Z
-DTSTAMP:20251223T190014Z
+DTSTAMP:20251224T185855Z
 UID:2026-02-18T09:25:00+10:00@https://thegabba.com.au/events/queensland-bu
  lls-v-south-australia---day-3
 DESCRIPTION:9:25am - Gates open\n10:00am - Start time\n\nMore info: https:
@@ -96,7 +96,7 @@ BEGIN:VEVENT
 SUMMARY:Queensland Bulls v South Australia – Day 4
 DTSTART:20260218T232500Z
 DTEND:20260219T022500Z
-DTSTAMP:20251223T190014Z
+DTSTAMP:20251224T185855Z
 UID:2026-02-19T09:25:00+10:00@https://thegabba.com.au/events/queensland-bu
  lls-v-south-australia---day-4
 DESCRIPTION:9:25am - Gates open\n10:00am - First Ball\n\nMore info: https:
@@ -109,7 +109,7 @@ BEGIN:VEVENT
 SUMMARY:Queensland Bulls v South Australia
 DTSTART:20260220T232500Z
 DTEND:20260221T022500Z
-DTSTAMP:20251223T190014Z
+DTSTAMP:20251224T185855Z
 UID:2026-02-21T09:25:00+10:00@https://thegabba.com.au/events/queensland-bu
  lls-v-western-australia
 DESCRIPTION:9:25am - Gates open\n10:00am - First Ball\n\nMore info: https:
