@@ -1,0 +1,7 @@
+name: Debug runner pickup
+on: workflow_dispatch
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "runner picked up at $(date)"
