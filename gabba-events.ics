@@ -9,7 +9,7 @@ BEGIN:VEVENT
 SUMMARY:Queensland Bulls v South Australia – Day 1
 DTSTART:20260215T232500Z
 DTEND:20260216T022500Z
-DTSTAMP:20260210T194807Z
+DTSTAMP:20260211T194329Z
 UID:2026-02-16T09:25:00+10:00@https://thegabba.com.au/events/queensland-bu
  lls-v-south-australia---day-1
 DESCRIPTION:9:25am - Gates open\n10:00am - First Ball\n\nMore info: https:
@@ -22,7 +22,7 @@ BEGIN:VEVENT
 SUMMARY:Queensland Bulls v South Australia – Day 2
 DTSTART:20260216T232500Z
 DTEND:20260217T022500Z
-DTSTAMP:20260210T194807Z
+DTSTAMP:20260211T194329Z
 UID:2026-02-17T09:25:00+10:00@https://thegabba.com.au/events/queensland-bu
  lls-v-south-australia---day-2
 DESCRIPTION:9:25am - Gates open\n10:00am - First Ball\n\nMore info: https:
@@ -35,7 +35,7 @@ BEGIN:VEVENT
 SUMMARY:Queensland Bulls v South Australia – Day 3
 DTSTART:20260217T232500Z
 DTEND:20260218T022500Z
-DTSTAMP:20260210T194807Z
+DTSTAMP:20260211T194329Z
 UID:2026-02-18T09:25:00+10:00@https://thegabba.com.au/events/queensland-bu
  lls-v-south-australia---day-3
 DESCRIPTION:9:25am - Gates open\n10:00am - Start time\n\nMore info: https:
@@ -48,7 +48,7 @@ BEGIN:VEVENT
 SUMMARY:Queensland Bulls v South Australia – Day 4
 DTSTART:20260218T232500Z
 DTEND:20260219T022500Z
-DTSTAMP:20260210T194807Z
+DTSTAMP:20260211T194329Z
 UID:2026-02-19T09:25:00+10:00@https://thegabba.com.au/events/queensland-bu
  lls-v-south-australia---day-4
 DESCRIPTION:9:25am - Gates open\n10:00am - First Ball\n\nMore info: https:
@@ -61,7 +61,7 @@ BEGIN:VEVENT
 SUMMARY:Queensland Bulls v South Australia
 DTSTART:20260220T232500Z
 DTEND:20260221T022500Z
-DTSTAMP:20260210T194807Z
+DTSTAMP:20260211T194329Z
 UID:2026-02-21T09:25:00+10:00@https://thegabba.com.au/events/queensland-bu
  lls-v-western-australia
 DESCRIPTION:9:25am - Gates open\n10:00am - First Ball\n\nMore info: https:
@@ -73,7 +73,7 @@ BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Western Bulldogs
 DTSTART:20260307T070000Z
 DTEND:20260307T100000Z
-DTSTAMP:20260210T194807Z
+DTSTAMP:20260211T194329Z
 UID:2026-03-07T17:00:00+10:00@https://thegabba.com.au/events/afl-lions-v-b
  ulldogs
 DESCRIPTION:5:00pm - Gates open\n6:35pm - Game start\n\nMore info: https:/
@@ -85,7 +85,7 @@ BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Collingwood Magpies
 DTSTART:20260402T070000Z
 DTEND:20260402T100000Z
-DTSTAMP:20260210T194807Z
+DTSTAMP:20260211T194329Z
 UID:2026-04-02T17:00:00+10:00@https://thegabba.com.au/events/afl-lions-v-c
  ollingwood
 DESCRIPTION:5:00pm - Gates open\n6:30pm - Start time\n\nMore info: https:/
@@ -97,7 +97,7 @@ BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Adelaide Crows
 DTSTART:20260426T040000Z
 DTEND:20260426T070000Z
-DTSTAMP:20260210T194807Z
+DTSTAMP:20260211T194329Z
 UID:2026-04-26T14:00:00+10:00@https://thegabba.com.au/events/afl-lions-v-c
  rows
 DESCRIPTION:2:00pm - Gates open\n3:15pm - Start time\n\nMore info: https:/
@@ -109,7 +109,7 @@ BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Carlton
 DTSTART:20260508T080000Z
 DTEND:20260508T110000Z
-DTSTAMP:20260210T194807Z
+DTSTAMP:20260211T194329Z
 UID:2026-05-08T18:00:00+10:00@https://thegabba.com.au/events/afl-lions-v-c
  arlton
 DESCRIPTION:6:00pm - Gates open\n7:30pm - Start time\n\nMore info: https:/
@@ -121,7 +121,7 @@ BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Geelong Cats
 DTSTART:20260514T080000Z
 DTEND:20260514T110000Z
-DTSTAMP:20260210T194807Z
+DTSTAMP:20260211T194329Z
 UID:2026-05-14T18:00:00+10:00@https://thegabba.com.au/events/afl-lions-v-c
  ats
 DESCRIPTION:6:00pm - Gates open\n7:30pm - Start time\n\nMore info: https:/
@@ -133,7 +133,7 @@ BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Fremantle
 DTSTART:20260530T050000Z
 DTEND:20260530T080000Z
-DTSTAMP:20260210T194807Z
+DTSTAMP:20260211T194329Z
 UID:2026-05-30T15:00:00+10:00@https://thegabba.com.au/events/afl-lions-v-f
  remantle
 DESCRIPTION:3:00pm - Gates open\n4:15pm - Start time\n\nMore info: https:/
