@@ -9,7 +9,7 @@ BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Western Bulldogs
 DTSTART:20260307T070000Z
 DTEND:20260307T100000Z
-DTSTAMP:20260225T194037Z
+DTSTAMP:20260226T193230Z
 UID:2026-03-07T17:00:00+10:00@https://thegabba.com.au/events/afl-lions-v-b
  ulldogs
 DESCRIPTION:5:00pm - Gates open\n6:35pm - Game start\n\nMore info: https:/
@@ -21,7 +21,7 @@ BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Collingwood Magpies
 DTSTART:20260402T070000Z
 DTEND:20260402T100000Z
-DTSTAMP:20260225T194037Z
+DTSTAMP:20260226T193230Z
 UID:2026-04-02T17:00:00+10:00@https://thegabba.com.au/events/afl-lions-v-c
  ollingwood
 DESCRIPTION:5:00pm - Gates open\n6:30pm - Start time\n\nMore info: https:/
@@ -33,7 +33,7 @@ BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Adelaide Crows
 DTSTART:20260426T040000Z
 DTEND:20260426T070000Z
-DTSTAMP:20260225T194037Z
+DTSTAMP:20260226T193230Z
 UID:2026-04-26T14:00:00+10:00@https://thegabba.com.au/events/afl-lions-v-c
  rows
 DESCRIPTION:2:00pm - Gates open\n3:15pm - Start time\n\nMore info: https:/
@@ -45,7 +45,7 @@ BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Carlton
 DTSTART:20260508T080000Z
 DTEND:20260508T110000Z
-DTSTAMP:20260225T194037Z
+DTSTAMP:20260226T193230Z
 UID:2026-05-08T18:00:00+10:00@https://thegabba.com.au/events/afl-lions-v-c
  arlton
 DESCRIPTION:6:00pm - Gates open\n7:30pm - Start time\n\nMore info: https:/
@@ -57,7 +57,7 @@ BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Geelong Cats
 DTSTART:20260514T080000Z
 DTEND:20260514T110000Z
-DTSTAMP:20260225T194037Z
+DTSTAMP:20260226T193230Z
 UID:2026-05-14T18:00:00+10:00@https://thegabba.com.au/events/afl-lions-v-c
  ats
 DESCRIPTION:6:00pm - Gates open\n7:30pm - Start time\n\nMore info: https:/
@@ -69,7 +69,7 @@ BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Fremantle
 DTSTART:20260530T050000Z
 DTEND:20260530T080000Z
-DTSTAMP:20260225T194037Z
+DTSTAMP:20260226T193230Z
 UID:2026-05-30T15:00:00+10:00@https://thegabba.com.au/events/afl-lions-v-f
  remantle
 DESCRIPTION:3:00pm - Gates open\n4:15pm - Start time\n\nMore info: https:/
