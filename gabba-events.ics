@@ -9,7 +9,7 @@ BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Geelong Cats
 DTSTART:20260514T080000Z
 DTEND:20260514T110000Z
-DTSTAMP:20260509T194553Z
+DTSTAMP:20260510T194645Z
 UID:2026-05-14T18:00:00+10:00@https://thegabba.com.au/events/afl-lions-v-c
  ats
 DESCRIPTION:6:00pm - Gates open\n7:30pm - Start time\n\nMore info: https:/
@@ -21,7 +21,7 @@ BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Fremantle
 DTSTART:20260530T050000Z
 DTEND:20260530T080000Z
-DTSTAMP:20260509T194553Z
+DTSTAMP:20260510T194645Z
 UID:2026-05-30T15:00:00+10:00@https://thegabba.com.au/events/afl-lions-v-f
  remantle
 DESCRIPTION:3:00pm - Gates open\n4:15pm - Start time\n\nMore info: https:/
@@ -32,7 +32,7 @@ END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Sydney Swans  25 - 28/06/2026
 DTSTART:20260624T140000Z
-DTSTAMP:20260509T194553Z
+DTSTAMP:20260510T194645Z
 UID:2026-06-25T00:00:00+10:00@https://thegabba.com.au/events/brisbane-lion
  s-v-sydney-swans---tbc-25-06-2026---28-06-2026
 DESCRIPTION:TBC - Gates open\nTBC - Start time\n\nMore info: https://thega
@@ -45,7 +45,7 @@ END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Essendon 09 - 12/07/2026
 DTSTART:20260708T140000Z
-DTSTAMP:20260509T194553Z
+DTSTAMP:20260510T194645Z
 UID:2026-07-09T00:00:00+10:00@https://thegabba.com.au/events/brisbane-lion
  s-v-essendon-09---12-07-2026
 DESCRIPTION:TBC - Gates open\nTBC - Start time\n\nMore info: https://thega
@@ -57,7 +57,7 @@ END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Port Adelaide 23 - 26/07/2026
 DTSTART:20260722T140000Z
-DTSTAMP:20260509T194553Z
+DTSTAMP:20260510T194645Z
 UID:2026-07-23T00:00:00+10:00@https://thegabba.com.au/events/brisbane-lion
  s-v-port-adelaide-23---26-07-2026
 DESCRIPTION:TBC - Gates open\nTBC - Start time\n\nMore info: https://thega
@@ -69,7 +69,7 @@ END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Hawthorn 06 - 09/08/2026
 DTSTART:20260805T140000Z
-DTSTAMP:20260509T194553Z
+DTSTAMP:20260510T194645Z
 UID:2026-08-06T00:00:00+10:00@https://thegabba.com.au/events/brisbane-lion
  s-v-hawthorn-06---09-08-2026
 DESCRIPTION:TBC - Gates open\nTBC - Start time\n\nMore info: https://thega
@@ -81,7 +81,7 @@ END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Gold Coast 13 - 16/08/2026
 DTSTART:20260812T140000Z
-DTSTAMP:20260509T194553Z
+DTSTAMP:20260510T194645Z
 UID:2026-08-13T00:00:00+10:00@https://thegabba.com.au/events/brisbane-lion
  s-v-gold-coast-suns-13---16-08-2026
 DESCRIPTION:TBC - Gates open\nTBC - Start time\n\nMore info: https://thega
@@ -94,7 +94,7 @@ BEGIN:VEVENT
 SUMMARY:T20I Australia v England
 DTSTART:20261127T081500Z
 DTEND:20261127T111500Z
-DTSTAMP:20260509T194553Z
+DTSTAMP:20260510T194645Z
 UID:2026-11-27T18:15:00+10:00@https://thegabba.com.au/events/mens-t20i-aus
  tralia-v-england
 DESCRIPTION:TBC - Gates open\n6:15pm - First ball\n\nMore info: https://th
