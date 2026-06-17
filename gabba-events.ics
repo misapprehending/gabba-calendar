@@ -9,7 +9,7 @@ BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Sydney Swans
 DTSTART:20260625T080000Z
 DTEND:20260625T110000Z
-DTSTAMP:20260616T213553Z
+DTSTAMP:20260617T205733Z
 UID:2026-06-25T18:00:00+10:00@https://thegabba.com.au/events/brisbane-lion
  s-v-sydney-swans---tbc-25-06-2026---28-06-2026
 DESCRIPTION:6:00pm - Gates open\n7:30pm - Start time\n\nMore info: https:/
@@ -23,7 +23,7 @@ BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Essendon
 DTSTART:20260712T051500Z
 DTEND:20260712T081500Z
-DTSTAMP:20260616T213553Z
+DTSTAMP:20260617T205733Z
 UID:2026-07-12T15:15:00+10:00@https://thegabba.com.au/events/brisbane-lion
  s-v-essendon-09---12-07-2026
 DESCRIPTION:3:15pm - Gates open\n4:40pm - Start time\n\nMore info: https:/
@@ -36,7 +36,7 @@ BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Port Adelaide
 DTSTART:20260726T014500Z
 DTEND:20260726T044500Z
-DTSTAMP:20260616T213553Z
+DTSTAMP:20260617T205733Z
 UID:2026-07-26T11:45:00+10:00@https://thegabba.com.au/events/brisbane-lion
  s-v-port-adelaide-23---26-07-2026
 DESCRIPTION:11:45am - Gates open\n1:10pm - Start time\n\nMore info: https:
@@ -49,7 +49,7 @@ BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Hawthorn
 DTSTART:20260807T081500Z
 DTEND:20260807T111500Z
-DTSTAMP:20260616T213553Z
+DTSTAMP:20260617T205733Z
 UID:2026-08-07T18:15:00+10:00@https://thegabba.com.au/events/brisbane-lion
  s-v-hawthorn-06---09-08-2026
 DESCRIPTION:6:15pm - Gates open\n7:40pm - Start time\n\nMore info: https:/
@@ -61,7 +61,7 @@ END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Brisbane Lions v Gold Coast
 DTSTART:20260809T140000Z
-DTSTAMP:20260616T213553Z
+DTSTAMP:20260617T205733Z
 UID:2026-08-10T00:00:00+10:00@https://thegabba.com.au/events/brisbane-lion
  s-v-gold-coast-suns-13---16-08-2026
 DESCRIPTION:TBC - Gates open\nTBC - Start time\n\nMore info: https://thega
@@ -74,7 +74,7 @@ BEGIN:VEVENT
 SUMMARY:T20I Australia v England
 DTSTART:20261127T081500Z
 DTEND:20261127T111500Z
-DTSTAMP:20260616T213553Z
+DTSTAMP:20260617T205733Z
 UID:2026-11-27T18:15:00+10:00@https://thegabba.com.au/events/mens-t20i-aus
  tralia-v-england
 DESCRIPTION:TBC - Gates open\n6:15pm - First ball\n\nMore info: https://th
@@ -86,7 +86,7 @@ BEGIN:VEVENT
 SUMMARY:Carreras & Friends – José Carreras\, Robbie Williams\, The Corr
  s & Ronan Keating and more
 DTSTART:20261204T140000Z
-DTSTAMP:20260616T213553Z
+DTSTAMP:20260617T205733Z
 UID:2026-12-05T00:00:00+10:00@https://thegabba.com.au/events/carreras---fr
  iends---jose-carreras--robbie-williams--the-corrs--0
 DESCRIPTION:TBC - Gates open\nTBC - Start time\n\nMore info: https://thega
